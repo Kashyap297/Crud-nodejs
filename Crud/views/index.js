@@ -12,7 +12,7 @@ const players = [
 ]
 
 // home
-app.get('/', (req, res)=>{
+app.get('/', (req, res) => {
     res.render('./Pages/home')
 })
 
@@ -28,32 +28,27 @@ app.get('/addplayer', (req, res) => {
 
 // post data to table
 app.post('/addplayer', (req, res) => {
-    const { name, email, password, gender, games, branch, address } = req.body;
-    if(name.trim() === ""){
-        console.log(req.body);
-        return res.render('./Pages/form', { error: 'Name is required', formData: req.body });
-    }
-    console.log(req.body);
-    players.push(req.body)
-    res.redirect('/list')
+    players.push(req.body);
+    res.redirect('/list');
+    // console.log(req.body);
 })
 
 // Delete Data
-app.get('/deletePlayer/:id', (req, res)=>{
+app.get('/deletePlayer/:id', (req, res) => {
     var id = req.params.id
     players.splice(id, 1)
     res.redirect('/list')
 })
 
 // edit data
-app.get('/editPlayer/:id', (req, res)=>{
+app.get('/editPlayer/:id', (req, res) => {
     var id = req.params.id
     var update = players[id]
-    res.render('./Pages/editForm', {player : update})
+    res.render('./Pages/editForm', { player: update })
 })
 
 // post data
-app.post('/editPlayer/:id', (req, res)=>{
+app.post('/editPlayer/:id', (req, res) => {
     var id = req.params.id
     players[id] = req.body
     res.redirect('/list')
