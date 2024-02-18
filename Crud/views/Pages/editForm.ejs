@@ -1,0 +1,71 @@
+<%- include('../Partials/Header') %>
+    <div class="d-flex align-items-center justify-content-center vh-80">
+        <div class="col-5">
+            <form action="" method="post" class="border p-3  rounded bg-white shadow">
+                <h3 class="text-secondary text-center mb-3">Sports Tournament</h3>
+                <div class="d-flex gap-2">
+                    <div class="col-6">
+                        <label for="" class="text-secondary">Name :</label>
+                        <input type="text" name="name" class="form-control" value="<%=player.name%>" placeholder="Enter Name">
+                    </div>
+                    <div class="col-6">
+                        <label for="" class="text-secondary">Email :</label>
+                        <input type="email" name="email" class="form-control" value="<%=player.email%>" placeholder="Enter Email">
+                    </div>
+                </div>
+                <div class="d-flex align-items-center gap-2 mt-2">
+                    <div class="col-6">
+                        <label for="" class="text-secondary">Password :</label>
+                        <input type="password" name="password" class="form-control" value="<%=player.password%>" placeholder="Enter Password">
+                    </div>
+                    <div class="col-6 text-center">
+                        <label for="" class="text-secondary">Gender : </label>
+                        <div class="d-flex justify-content-center">
+                            <input type="radio" id="male" name="gender" value="Male" <% if (player.gender === 'Male') { %>checked<% } %> class="me-1">
+                            <label for="male" class="text-dark me-3">Male</label>
+
+                            <input type="radio" id="female" name="gender" value="Female" <% if (player.gender === 'Female') { %>checked<% } %> class="me-1">
+                            <label for="female" class="text-dark">Female</label>
+                        </div>
+                    </div>
+                </div>
+                <label for="" class="text-secondary col-12 mt-3">Select Games : </label>
+                <div class="d-flex align-items-center justify-content-between text-dark gap-2">
+                    <div class="col-2">
+                        <input type="checkbox" name="games" value="Cricket" <% if (player.games.includes('Cricket')) { %>checked<% } %>> Cricket<br>
+                        <input type="checkbox" name="games" value="basketball" <% if (player.games.includes('basketball')) { %>checked<% } %>> Basketball<br>
+                    </div>
+                    <div class="col-2">
+                        <input type="checkbox" name="games" value="Football" <% if (player.games.includes('Football')) { %>checked<% } %>> Football<br>
+                        <input type="checkbox" name="games" value="Tennis" <% if (player.games.includes('Tennis')) { %>checked<% } %>> Tennis<br>
+                    </div>
+                    <div class="col-2">
+                        <input type="checkbox" name="games" value="Volleyball" <% if (player.games.includes('Volleyball')) { %>checked<% } %>> Volleyball<br>
+                        <input type="checkbox" name="games" value="Badminton" <% if (player.games.includes('Badminton')) { %>checked<% } %>> Badminton<br>
+                    </div>
+                    <div class="col-6 text-center">
+                        <div class="col-8 m-auto">
+                            <label for="dropdown" class="text-secondary me-3">Branch :</label>
+                            <select id="dropdown" class="form-control" name="branch" >
+                                <option value="" selected>--Select Branch--</option>
+                                <option value="RnW-1"  <% if (player.branch === 'RnW-1') { %>selected<% } %>>RnW-1</option>
+                                <option value="RnW-2"  <% if (player.branch === 'RnW-2') { %>selected<% } %>>RnW-2</option>
+                                <option value="RnW-3"  <% if (player.branch === 'RnW-3') { %>selected<% } %>>RnW-3</option>
+                                <option value="RnW-4"  <% if (player.branch === 'RnW-4') { %>selected<% } %>>RnW-4</option>
+                                <option value="RnW-5"  <% if (player.branch === 'RnW-5') { %>selected<% } %>>RnW-5</option>
+                                <option value="RnW-6"  <% if (player.branch === 'RnW-6') { %>selected<% } %>>RnW-6</option>
+                                <option value="RnW-7"  <% if (player.branch === 'RnW-7') { %>selected<% } %>>RnW-7</option>
+                                <option value="RnW-8"  <% if (player.branch === 'RnW-8') { %>selected<% } %>>RnW-8</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <label for="textarea" class="text-secondary mt-2">Address :</label>
+                <textarea id="textarea" class="form-control" rows="1" placeholder="Enter Address" name="address" ><%=player.address%></textarea>
+                <div class="text-center">
+                    <button class="btn btn-outline-dark mt-2 text-center">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <%- include('../Partials/Footer') %>
