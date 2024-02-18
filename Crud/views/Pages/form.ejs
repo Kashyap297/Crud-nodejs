@@ -67,7 +67,7 @@
                                 <p class="text-danger m-0 ms-5" id="branchError"></p>
                             </div>
                             <select id="dropdown" class="form-control" name="branch">
-                                <option value="" selected>--Select Branch--</option>
+                                <option value="--Select Branch--" selected>--Select Branch--</option>
                                 <option value="RnW-1">RnW-1</option>
                                 <option value="RnW-2">RnW-2</option>
                                 <option value="RnW-3">RnW-3</option>
@@ -140,7 +140,7 @@
                     gameError.innerText = "";
                 }
 
-                if (e.branch.value === "") {
+                if (e.branch.value === "" || e.branch.value === "--Select Branch--") {
                     branchError.innerText = "Select Branch*";
                     isValid = false;
                 } else {
